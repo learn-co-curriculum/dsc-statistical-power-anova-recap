@@ -1,41 +1,29 @@
 
-# Section Recap
+# Statistical Power and ANOVA - Recap
 
 ## Introduction
 
-This short lesson summarizes the topics we covered in section 20 and why they'll be important to you as a data scientist.
+You've covered quite a bit in this section and should be gearing up to start conducting your own hypothesis testing! Before moving on to that exiting realm, take a minute to review some of the key takeaways.
 
 ## Objectives
 You will be able to:
-* Understand and explain what was covered in this section
-* Understand and explain why this section will help you become a data scientist
+* Identify common alpha and power thresholds
+* Discuss how alpha, power, effect size and sample size are related
+* Discuss when to use Welch's t-test as oppossed to studen't t-test
+* Discuss the multiple comparisons problem
 
 ## Key Takeaways
 
-Some of the key takeaways from this section include:
-* It's important to have a sound approach to experimental design to be able to determine the significance of your findings
-* Start by examining any existing research to see if it can shed light on the problem you're studying
-* Start with a clear alternative and null hypothesis for your experiment to "prove"
-* It's important to have a thoughtfully selected control group from the same population for your trial to distinguish effect from variations based on population, time or other factors
-* Sample size needs to be selected carefully to ensure your results have a good chance of being statistically significant
-* Your results should be reproducible by other people and using different samples from the population
-* The p-value for an outcome determines how likely it is that the outcome could be due to chance
-* The alpha value is the marginal threshold at which we're comfortable rejecting the null hypothesis
-* An alpha of 0.05 is a common choice for many experiments
-* Effect size measures just the size in difference between two groups under observation, whereas statistical significance combines effect size with sample size
-* A one sample t-test is used to determine whether a sample comes from a population with a specific mean. 
-* A two-sample t-test is used to determine if two population means are equal
-* Type 1 errors (false positives) are when we accept an alternative hypothesis which is actually false
-* The alpha that we pick is the likelihood that we will get a type 1 error due to random chance
-* Type 2 errors (false negatives) are when we reject an alternative hypothesis which is actually true
-* The beta that we pick is the likelihood that we will get a type 2 error due to random chance
-* The power of a statistical test is defined as the probability of rejecting the null hypothesis, given that it is indeed false
-* You should avoid swimming pools any year that Nicolas Cage appears in multiple films (kidding!)
-* Spurious correlation is always a risk - but particularly when comparing multiple variables
-* It's important to use corrections such as the Bonferroni Correction to deal with multiple comparisons
-* Goodhart's law: "Any observed statistical regularity will tend to collapse once pressure is placed upon it for control purposes." --Charles Goodhart
-* ANOVA (Analysis of Variance) tests the hypothesis that the means of two or more populations are equal
+Remember that the section began where the last left off, examining the relationship between $\alpha$, power, effect size and sample size. As you saw, these 4 quantities form a deterministic relationship; know any 3, and you can caulculate the fourth. While a lower alpha value will lead to fewer type I errors, and a higher power will lead to fewer type II errors, in practice these are often set to common default standards due to exploding sample sizes required to detect various effect sizes. Some common thresholds used are:
+
+* Setting alpha equal to .05 (or .01)
+* Requiring power values of .8 or greater
 
 
+After a thorough investigation of this relationship, you then also saw an alternative t-test, Welch's t-test which can be used for comparing samples of different sizes of with different variances. While the formula was a bit complicated, the most important piece to remember is that when the assumptions that sample size and sample variance are equal for the two samples is violated, use Welch's t-test rather then student's t-test.
 
+Aside from ensuring that the assumptions of a t-test are met, it's also important to know how type I errors are compounded if you perform multiple A/B tests. This is known as the multiple comparison problem and you saw that type I errors compound under multiple tests. So while the probability of a type I error is equal to $\alpha$ for any one test, the collective probability that there is at least 1 type I error continues to increase as you perform more tests, further detracting from the confidence that you have uncovered a meaningful relationship. In order to account for this, you can use stricter criteria when defining $\alpha$ such as the Bonferroni Correction. Alternatively, ANOVA is equivalent to a 2 sided t-test when comparing 2 groups, but also generalizes appropriately to multiple group comparisons. 
 
+## Summary
+
+Remember that simply observing a low p-value is not meaningful in and of itself. There are a number of factors to take into consideration when interpreting the results of a statistical test, from alpha, power, sample size, effect size, and the formulation of the problem itself. Good hypothesis testing requires careful thought and design.
