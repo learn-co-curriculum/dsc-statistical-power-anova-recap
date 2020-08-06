@@ -9,9 +9,8 @@ You've covered quite a bit in this section and should be gearing up to start con
 
 Remember that the section began where the last left off, examining the relationship between  <img src="https://render.githubusercontent.com/render/math?math=\alpha"> , power, effect size, and sample size. As you saw, these 4 quantities form a deterministic relationship; know any 3, and you can caulculate the fourth. While a lower alpha value will lead to fewer type I errors, and a higher power will lead to fewer type II errors, in practice these are often set to common default standards due to exploding sample sizes required to detect various effect sizes. Some common thresholds used are:
 
-* Setting alpha equal to 0.05 (or 0.01)
-* Requiring power values of 0.8 or greater
-
+- Setting alpha equal to 0.05 (or 0.01)
+- Requiring power values of 0.8 or greater
 
 After a thorough investigation of this relationship, you then also saw an alternative t-test, Welch's t-test which can be used for comparing samples of different sizes or different variances. While the formula was a bit complicated, the most important piece to remember is that when the assumptions that sample size and sample variance are equal for the two samples is violated, use Welch's t-test rather than the Student's t-test.
 
